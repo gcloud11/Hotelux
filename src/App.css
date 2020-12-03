@@ -17,3 +17,17 @@ a {
   color: #333;
   text-decoration: none;
 }
+
+
+.logo {
+  width:150px;
+  height:60px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+form {
+  margin: 15px;
+}
