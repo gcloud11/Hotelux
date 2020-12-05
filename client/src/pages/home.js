@@ -10,6 +10,8 @@ import GoogleApiWrapper from '../components/googleMaps';
 
 function Home() {
 
+    console.log('API KEY', process.env.REACT_APP_API_KEY);
+
     // EXAMPLE OF CLIENT (react) TALKING TO SERVER (node/express)
     useEffect(() => {
         axios.get('/api/user/example').then((response) => {
