@@ -1,6 +1,6 @@
 import React from "react";
 import '../pages/home.css';
-import Pic1 from '../Images/Apt.jpg';
+import Pic1 from "../images/Apt.jpg"
 import Card from '../components/grid';
 import Head from "../components/head";
 
