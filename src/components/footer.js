@@ -13,7 +13,6 @@ function Footer() {
             <i className="fab fa-twitter w3-hover-opacity"></i>
             <i className="fab fa-linkedin w3-hover-opacity"></i>
         </div>
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" className="w3-hover-text-green">w3.css</a></p>
         </footer>
     </>
     )
