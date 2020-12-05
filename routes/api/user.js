@@ -9,6 +9,12 @@ const {
     validationResult
 } = require('express-validator');
 
+
+router.get("/example", (req, res) => {
+    res.json({ stuff: 'YO, this is from the server!'});
+});
+
+
 // Reference to the User schema
 const User = require('../../models/User');
 
