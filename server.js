@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(Routes);
 connectDb();
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3001;
 
 // Serve static build in production
 if (process.env.NODE_ENV === 'production') {
