@@ -24,11 +24,11 @@ function Head () {
                 <div className="w3-row-padding" style={{margin:"8px -16px"}}></div>
                 <div className="w3-half w3-margin-bottom">
                     <label> Minimum Price</label>
-                    <input className="w3-input w3-border" type="number" value="0" min="$400"></input>
+                    <input className="w3-input w3-border" type="number"></input>
                 </div>
                 <div className="w3-half">
                         <label> Maximum Price</label>
-                    <input className="w3-input w3-border" type="number" value="0" min="$10,000" max="6"></input>
+                    <input className="w3-input w3-border" type="number"></input>
                 </div>
             </form>
         </div>
