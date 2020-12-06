@@ -4,7 +4,7 @@ const router = require("express").Router();
 //Requiring the js page to the right root routes
 router.use("/user", require("./user.js"));
 router.use("/auth", require("./auth.js"));
-
+router.use("/favorite", require("./favorite.js"))
 
 // const urlMapsAPI = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBWcTd7dMqmUwcc-XtsuhxM6OzMALZG6oc';
 // const options = {
