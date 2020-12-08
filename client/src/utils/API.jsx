@@ -30,17 +30,14 @@ const api = {
 
         const options = {
             method: 'GET',
-            url: 'https://hotels4.p.rapidapi.com/properties/list',
+            url: 'https://hotels4.p.rapidapi.com/properties/get-details',
             params: {
-              destinationId: '1506246',
-              pageNumber: '1',
-              checkIn: '2020-01-08',
-              checkOut: '2020-01-15',
-              pageSize: '25',
-              adults1: '1',
-              currency: 'USD',
+              id: '424023',
               locale: 'en_US',
-              sortOrder: 'PRICE'
+              currency: 'USD',
+              checkOut: '2020-01-07',
+              adults1: '1',
+              checkIn: '2020-01-08'
             },
             headers: {
               'x-rapidapi-key': '79c829a3a0msh1799eb45de81554p1ec99cjsn8003015b6ca8',
