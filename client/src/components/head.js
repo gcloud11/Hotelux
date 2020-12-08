@@ -8,7 +8,7 @@ function Head () {
 
         <div className="w3-display-left w3-padding w3-col l6 m8">
 
-            <div className="w3-container w3-pink">
+            <div className="w3-container w3-blue">
                 <h2 style={{ 'fontSize': '20px'}}><i className="fa fa-bed w3-margin-right"></i>Hotel Name</h2>
             </div>
             <div className="w3-container w3-white w3-padding-16">

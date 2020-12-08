@@ -16,7 +16,7 @@ const Listings = () => {
             const data = await Api.listings({});
             setListings(data)
             console.log(data)
-            console.log(data.data.data.body.amenities[0].heading)
+            // console.log(data.data.data.body.amenities[0].heading)
         }
         getData();
     }, []);
