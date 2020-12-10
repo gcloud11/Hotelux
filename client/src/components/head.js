@@ -2,7 +2,7 @@ import React from "react";
 import "../components/head.css"
 
 
-function Head({ checkIn, setCheckIn, checkOut, setCheckOut, adults, setAdults, refreshData }) {
+function Head({ checkIn, setCheckIn, checkOut, setCheckOut, adults, setAdults, city, setCity, refreshData }) {
 
 
     return (
@@ -31,10 +31,10 @@ function Head({ checkIn, setCheckIn, checkOut, setCheckOut, adults, setAdults, r
                         </div>
                         <div className="w3-half">
                             <label><i class="fa fa-child"></i> City Name</label>
-                            <input className="w3-input w3-border" type="text"></input>
+                            <input className="w3-input w3-border" name="city" type="text" value={city} onChange={e => setCity(e.target.value)}></input>
                         </div>
                     </div>  
-                    <button class="w3-button w3-dark-grey" type="submit" onClick={ () => {} }><i class="fa fa-search w3-margin-right"></i> Search availability</button>                  
+                    <button class="w3-button w3-dark-grey" type="submit"><i class="fa fa-search w3-margin-right"></i> Search availability</button>                  
                 </form>
             </div>
         </div>
