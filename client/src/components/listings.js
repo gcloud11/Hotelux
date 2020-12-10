@@ -8,14 +8,13 @@ import Api from "../utils/API";
 
 
 const Listings = ({ listingsData }) => {
+    console.log('listings', listingsData);
+    const [detail, setDetail] = useState(null);
 
-
-    // const LoginSignup = (photo) => {
-    //     console.log(photo);
-    //     alert('info')
-    // };
-
-    // console.log("LISTINGS: ", listingsData);
+    let listings = [];
+    if(listingsData && listingsData.status === 200) {
+        listings = listingsData.data.data.body.searchResults.results;
+    }
 
     return (
         <div>
@@ -23,22 +22,25 @@ const Listings = ({ listingsData }) => {
             <div>
                 <Link to="/insert/your/path/here" className="btn btn-primary">hello</Link>
             </div>
-
-            <ul>
-
-
-                {/* { listings.map(listing => (
+            { detail ? (
+                <div>
+                    <h2>{detail.name}</h2>
+                    <button onClick={() => setDetail(null)}>&lt; Back to listings</button>
+                </div>
+            ) : (
+                <ul>
+                    {listings.map(listing => (
                     <li>
-                        <img src={ listing.url } alt={ listing.title } />
-                        <Link to={ `/listings/${photo.id}` } className="btn btn-primary">Find out more!</Link>
+                        <img src={listing.thumbnailUrl} alt={listing.name} />
+                        <b>{listing.name}</b>
+                        <button onClick={() => setDetail(listing)}>View Detail</button>
+                        {/*<Link to={ `/listings/${photo.id}` } className="btn btn-primary">Find out more!</Link>
                         <button onClick={moreInfo}> 
                         I am a button
-                        </button>
-                    </li>
-                )) } */}
-
-            </ul>
-
+                </button> */}
+                    </li>))}
+                </ul>
+            )}
         </div>
     )
 }
