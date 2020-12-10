@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import './home.css';
 import Pic1 from "../images/Hotel1.jpg";
-import Card from '../components/grid';
+// import Card from '../components/grid';
 import Head from "../components/head";
 import Listings from '../components/listings';
 import GoogleApiWrapper from '../components/googleMaps';
@@ -14,11 +14,11 @@ function Home() {
     const [checkOut, setCheckOut] = useState("");
     const [adults, setAdults] = useState(1);
     const [listingsData, setListingsData] = useState();
-    const [cityId, setCityId] = useState('424023');
+    const [cityId, setCityId] = useState("");
 
     // const [kids, setKids] = useState(0);
 
-    console.log('API KEY', process.env.REACT_APP_API_KEY);
+    // console.log('API KEY', process.env.REACT_APP_API_KEY);
 
     async function refreshData(e) {
         e.preventDefault();
@@ -40,7 +40,7 @@ function Home() {
         <>
             <img className="w3-image"  src={Pic1} alt="Apartments" style={{ 'min-width' : '1000px' }} width="1600" height="1000"/>
             <Head {...{checkIn,setCheckIn,checkOut,setCheckOut,adults,setAdults,refreshData}} />
-            <Card />
+            {/* <Card /> */}
             <Listings {...{checkIn,checkOut,adults,listingsData}} />
             {/* <GoogleApiWrapper /> */}
         </>
