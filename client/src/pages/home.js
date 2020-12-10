@@ -13,12 +13,20 @@ function Home() {
     const [checkIn, setCheckIn] = useState("");
     const [checkOut, setCheckOut] = useState("");
     const [adults, setAdults] = useState(1);
-    const [listingsData, setListingsData] = useState();
+    const [listingsData, setListingsData] = useState([]);
     const [cityId, setCityId] = useState("");
-
-    // const [kids, setKids] = useState(0);
-
-    // console.log('API KEY', process.env.REACT_APP_API_KEY);
+  
+    async function cityName () {
+        //make a function to call from a button click instead of in here into an onclick so they dont render once the page loads and only render on a click
+        const location = await Api.cityId();
+        const cityID = location.data.suggestions[0].entities[0].desitnationId
+        setCityId(location)
+        console.log(location)
+        
+        // console.log(data.data.data.body.amenities[0].heading)
+    }
+    cityName();
+    
 
     async function refreshData(e) {
         e.preventDefault();
@@ -26,15 +34,15 @@ function Home() {
         setListingsData(data);
     };
 
-    // EXAMPLE OF CLIENT (react) TALKING TO SERVER (node/express)
-    useEffect(() => {
-        // axios.get('/api/user/example').then((response) => {
-        //     console.log("RESPONSE FROM SERVER", response.data);
-        // });
 
-        // If you have a default:
-        //refreshData();
-    }, []);
+    async function listingsAll () {
+
+        const data = await Api.listings();
+        setListingsData(data)
+        console.log(data)
+    }
+
+
 
     return (
         <>
@@ -45,6 +53,19 @@ function Home() {
             {/* <GoogleApiWrapper /> */}
         </>
     )
+
+
+
+    // EXAMPLE OF CLIENT (react) TALKING TO SERVER (node/express)
+    // useEffect(() => {
+        // axios.get('/api/user/example').then((response) => {
+        //     console.log("RESPONSE FROM SERVER", response.data);
+        // });
+
+        // If you have a default:
+        //refreshData();
+    // }, []);
+
 }
 
 export default Home;

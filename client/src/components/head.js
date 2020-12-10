@@ -4,7 +4,6 @@ import "../components/head.css"
 
 function Head({ checkIn, setCheckIn, checkOut, setCheckOut, adults, setAdults, refreshData }) {
 
-    console.log("CHECKIN", checkIn)
 
     return (
 
@@ -31,11 +30,11 @@ function Head({ checkIn, setCheckIn, checkOut, setCheckOut, adults, setAdults, r
                             <input className="w3-input w3-border" type="number" name="Adults" min="1" max="6" value={adults} onChange={e => setAdults(e.target.value)}></input>
                         </div>
                         <div className="w3-half">
-                            <label><i class="fa fa-child"></i> Kids</label>
-                            <input className="w3-input w3-border" type="number" value="0" name="Kids" min="0" max="6"></input>
+                            <label><i class="fa fa-child"></i> City Name</label>
+                            <input className="w3-input w3-border" type="text"></input>
                         </div>
                     </div>  
-                    <button class="w3-button w3-dark-grey" type="submit"><i class="fa fa-search w3-margin-right"></i> Search availability</button>                  
+                    <button class="w3-button w3-dark-grey" type="submit" onClick={ () => {} }><i class="fa fa-search w3-margin-right"></i> Search availability</button>                  
                 </form>
             </div>
         </div>
