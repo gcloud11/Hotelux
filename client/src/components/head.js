@@ -2,7 +2,9 @@ import React from "react";
 import "../components/head.css"
 
 
-function Head () {
+function Head({ checkIn, setCheckIn, checkOut, setCheckOut, adults, setAdults, refreshData }) {
+
+    console.log("CHECKIN", checkIn)
 
     return (
 
@@ -12,21 +14,21 @@ function Head () {
                 <h2 style={{ 'fontSize': '20px'}}><i className="fa fa-bed w3-margin-right"></i>Hotel Name</h2>
             </div>
             <div className="w3-container w3-white w3-padding-16">
-                <form action="/" target="_blank">
+                <form onSubmit={refreshData}>
                     <div className="w3-row-padding" style={{ margin: "0 -16px"}}>
                         <div className="w3-half w3-margin-bottom">
                             <label><i className="fa fa-calendar-o"/>Check In </label>
-                            <input className="w3-input w3-border" type="text" placeholder="DD MM YYY" name="CheckIn" required></input>
+                            <input className="w3-input w3-border" type="text" placeholder="DD MM YYY" name="CheckIn" required value={checkIn} onChange={e => setCheckIn(e.target.value)}></input>
                         </div>
                         <div className="w3-half">
                             <label><i className="fa fa-calendar-o"/>Check Out </label>
-                            <input className="w3-input w3-border" type="text" placeholder="DD MM YYY" name="CheckOut" required></input>
+                            <input className="w3-input w3-border" type="text" placeholder="DD MM YYY" name="CheckOut" required value={checkOut} onChange={e => setCheckOut(e.target.value)}></input>
                         </div>
                     </div>
                     <div className="w3-row-padding" style={{margin:"8px -16px"}}>
                         <div className="w3-half w3-margin-bottom">
                             <label><i class="fa fa-male"></i> Adults</label>
-                            <input className="w3-input w3-border" type="number" value="1" name="Adults" min="1" max="6"></input>
+                            <input className="w3-input w3-border" type="number" name="Adults" min="1" max="6" value={adults} onChange={e => setAdults(e.target.value)}></input>
                         </div>
                         <div className="w3-half">
                             <label><i class="fa fa-child"></i> Kids</label>

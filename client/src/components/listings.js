@@ -6,12 +6,11 @@ import Maps from '../components/googleMaps';
 import LoginSignup from "../components/LogSign/loginSign";
 import Api from "../utils/API";
 
-
-
-const Listings = () => {
-    const [listings, setListings] = useState([]);
+const Listings = ({ listingsData }) => {
+    // const [listings, setListings] = useState([]);
     const [photos, setPhotos] = useState([]);
     useEffect(() => {
+
         async function getData () {
             const data = await Api.listings({});
             setListings(data)
@@ -19,12 +18,15 @@ const Listings = () => {
             // console.log(data.data.data.body.amenities[0].heading)
         }
         getData();
+
     }, []);
 
     // const LoginSignup = (photo) => {
     //     console.log(photo);
     //     alert('info')
     // };
+
+    console.log("LISTINGS: ", listingsData);
 
     return (
         <div>
@@ -34,11 +36,9 @@ const Listings = () => {
                 <Link to="/insert/your/path/here" className="btn btn-primary">hello</Link>
             </div>
 
-
             <ul>
                 { photos.map(photo => (
                     <li>
-                        {console.log('photo', photo) }
                         <img src={ photo.url } alt={ photo.title } />
                         <Link to={ `/detail/${photo.id}` } className="btn btn-primary">Find out more!</Link>
                         {/* <button onClick={moreInfo}> 
