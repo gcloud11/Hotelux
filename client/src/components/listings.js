@@ -10,13 +10,15 @@ const Listings = ({ listingsData }) => {
     // const [listings, setListings] = useState([]);
     const [photos, setPhotos] = useState([]);
     useEffect(() => {
-        // async function getData () {
-        //     const data = await Api.listings({});
-        //     setListings(data)
-        //     console.log(data)
-        //     console.log(data.data.data.body.amenities[0].heading)
-        // }
-        // getData();
+
+        async function getData () {
+            const data = await Api.listings({});
+            setListings(data)
+            console.log(data)
+            // console.log(data.data.data.body.amenities[0].heading)
+        }
+        getData();
+
     }, []);
 
     // const LoginSignup = (photo) => {

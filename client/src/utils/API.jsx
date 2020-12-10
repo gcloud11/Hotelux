@@ -30,6 +30,20 @@ const api = {
 
         const options = {
             method: 'GET',
+
+            url: 'https://hotels4.p.rapidapi.com/properties/list',
+            params: {
+              destinationId: '1506246',
+              pageNumber: '1',
+              checkIn: '2020-01-08',
+              checkOut: '2020-01-15',
+              pageSize: '25',
+              adults1: '1',
+              currency: 'USD',
+              locale: 'en_US',
+              sortOrder: 'PRICE'
+            },
+
             url: 'https://hotels4.p.rapidapi.com/properties/get-details',
             // params: {
             //   id: '424023',
@@ -59,10 +73,27 @@ const api = {
             //     adults1: adults,
             //     checkIn: checkIn
             //   },
+
             headers: {
               'x-rapidapi-key': '79c829a3a0msh1799eb45de81554p1ec99cjsn8003015b6ca8',
               'x-rapidapi-host': 'hotels4.p.rapidapi.com'
             }
+
+            // method: 'GET',
+            // url: 'https://hotels4.p.rapidapi.com/properties/get-details',
+            // params: {
+            //   id: '424023',
+            //   locale: 'en_US',
+            //   currency: 'USD',
+            //   checkOut: '2020-01-07',
+            //   adults1: '1',
+            //   checkIn: '2020-01-08'
+            // },
+            // headers: {
+            //   'x-rapidapi-key': '79c829a3a0msh1799eb45de81554p1ec99cjsn8003015b6ca8',
+            //   'x-rapidapi-host': 'hotels4.p.rapidapi.com'
+            // }
+            
             // method: 'GET',
             // url: 'https://hotels4.p.rapidapi.com/locations/search',
             // params: {
