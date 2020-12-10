@@ -8,29 +8,6 @@ import Api from "../utils/API";
 
 
 const Listings = ({ listingsData }) => {
-    const [listings, setListings] = useState([]);
-    const [cities, setCity] = useState([]);
-
-
-    useEffect(() => {
-        async function getData () {
-            //make a function to call from a button click instead of in here into an onclick so they dont render once the page loads and only render on a click
-            const location = await Api.cityId({});
-            const cityID = location.data.suggestions[0].entities[0].desitnationId
-            setCity(location)
-            console.log(location)
-            
-            const data = await Api.listings({});
-            setListings(data)
-            console.log(data)
-
-            // console.log(data.data.data.body.amenities[0].heading)
-        }
-        getData();
-            //chain raction of events, starting with city ID
-
-    }, []);
-
 
 
     // const LoginSignup = (photo) => {
@@ -38,7 +15,7 @@ const Listings = ({ listingsData }) => {
     //     alert('info')
     // };
 
-    console.log("LISTINGS: ", listingsData);
+    // console.log("LISTINGS: ", listingsData);
 
     return (
         <div>

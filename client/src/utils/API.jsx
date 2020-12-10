@@ -96,21 +96,6 @@ const api = {
             }
 
             // method: 'GET',
-            // url: 'https://hotels4.p.rapidapi.com/properties/get-details',
-            // params: {
-            //   id: '424023',
-            //   locale: 'en_US',
-            //   currency: 'USD',
-            //   checkOut: '2020-01-07',
-            //   adults1: '1',
-            //   checkIn: '2020-01-08'
-            // },
-            // headers: {
-            //   'x-rapidapi-key': '79c829a3a0msh1799eb45de81554p1ec99cjsn8003015b6ca8',
-            //   'x-rapidapi-host': 'hotels4.p.rapidapi.com'
-            // }
-
-            // method: 'GET',
             // url: 'https://hotels4.p.rapidapi.com/locations/search',
             // params: {
             //     query: 'new york', 
@@ -122,6 +107,27 @@ const api = {
         };
 
         return axios.request(options)
+    },
+
+    hotels1: async () => {
+        const options = {
+            method: 'GET',
+            url: 'https://hotels-com-free.p.rapidapi.com/srle/listing/v1/brands/hotels.com',
+            params: {
+                checkIn: '2021-01-27',
+                checkOut: '2021-01-28',
+                lat: '37.788719679657554',
+                lon: '-122.40057774847898',
+                locale: 'en_US',
+                rooms: '1',
+                currency: 'USD',
+                pageNumber: '1'
+            },
+            headers: {
+                'x-rapidapi-key': '79c829a3a0msh1799eb45de81554p1ec99cjsn8003015b6ca8',
+                'x-rapidapi-host': 'hotels-com-free.p.rapidapi.com'
+            }
+        }
     }
 }
 export default api;
