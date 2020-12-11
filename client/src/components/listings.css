@@ -1,0 +1,14 @@
+.Grid1 {
+    padding: 25px;
+    align-items: center;
+}
+
+.card1 {
+    flex-grow: 1;
+    max-Width: 345;
+    display: inline;
+}
+
+.cardMedia {
+    height: 140;
+}
