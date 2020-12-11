@@ -12,7 +12,7 @@ function Head({ checkIn, setCheckIn, checkOut, setCheckOut, adults, setAdults, c
 
         <div className="w3-display-left w3-padding w3-col l6 m8">
 
-            <div className="w3-container w3-blue">
+            <div className="w3-container w3-black">
                 <h2 style={{ 'fontSize': '20px'}}><i className="fa fa-bed w3-margin-right"></i>Hotelux</h2>
             </div>
             <div className="w3-container w3-white w3-padding-16">

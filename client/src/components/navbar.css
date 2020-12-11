@@ -1,4 +1,13 @@
-.w3-bar-item, .w3-bar{
-    text-decoration: none;  
+.nav, .btn {
+    background-color: #111111;
+    width: 100%; /* the parent must have 100% either */
+    overflow: hidden; /* hides overflow */
 }
+
+.btn:after {
+    content: "";
+    clear: both;
+    display: table;
+   
+} 
 
