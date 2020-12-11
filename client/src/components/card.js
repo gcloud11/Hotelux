@@ -1,18 +1,29 @@
-import React from "react";
-import Grid from './grid';
+import React, {Component} from "react";
+import Listings from "../components/listings";
+import "../components/listings.css";
 
-function Card () {
 
-    return (
+class Cards extends Component{
 
-        <div>
-            <Grid />
-        </div>
+    render() {
+        return (
+            <div className="container-fluid d-flex justify-content-content-center">
+                <div className="row">
+                    <div className="col-md-4">
+                        <Listings />
+                    </div>
+                    <div className="col-md-4">
+                        <Listings />
+                    </div>    
+                    <div className="col-md-4">
+                        <Listings />
+                    </div>
+                </div>
 
-     )
-
+            </div>
+        )
+    }
 }
 
 
-
-export default Card;
+export default Cards;

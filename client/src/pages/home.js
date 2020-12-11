@@ -5,15 +5,18 @@ import Pic1 from "../images/Hotel1.jpg";
 import Head from "../components/head";
 import Listings from '../components/listings';
 import Api from  "../utils/API";
+import Cards from "../components/card";
 
 function Home() {
-
+ 
     const [checkIn, setCheckIn] = useState("");
     const [checkOut, setCheckOut] = useState("");
     const [adults, setAdults] = useState(1);
     const [listingsData, setListingsData] = useState([]);
     const [city, setCity] = useState("");
     const [cityId, setCityId] = useState("");
+
+
 
     async function refreshData(e) {
         e.preventDefault();
@@ -22,6 +25,9 @@ function Home() {
         console.log('DESTINATION:', destinationId);
         const data = await Api.listings(destinationId, checkIn, checkOut, adults);
         setListingsData(data);
+        const inputs = {id: new Date().getTime().toString(), checkIn, checkOut, adults, city}
+            console.log (inputs)
+        
     };
 
     return (
@@ -29,6 +35,7 @@ function Home() {
             <img className="w3-image"  src={Pic1} alt="Apartments" style={{ 'min-width' : '1000px' }} width="1600" height="1000"/>
             <Head {...{checkIn,setCheckIn,checkOut,setCheckOut,adults,setAdults,city,setCity,refreshData}} />
             <Listings {...{checkIn,checkOut,adults,listingsData}} />
+            <Cards {...{checkIn,checkOut,adults,listingsData}}/>
         </>
     )
 

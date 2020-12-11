@@ -1,47 +1,55 @@
-import React, { useState, useEffect } from 'react';
-// import Router from '../../routes/api/index';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import IconButton from '@material-ui/core/IconButton';
+import InfoIcon from '@material-ui/icons/Info';
+import tileData from './tileData';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+  gridList: {
+    width: 500,
+    height: 450,
+  },
+  icon: {
+    color: 'rgba(255, 255, 255, 0.54)',
   },
 }));
 
-
-export default function FullWidthGrid({title, url}) {
-
+export default function TitlebarGridList() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-        {/* <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
-                <Paper className={classes.paper}></Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-                <Paper className={classes.paper}></Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-                <Paper className={classes.paper}></Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-                <Paper className={classes.paper}></Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-                <Paper className={classes.paper}></Paper>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-                <Paper className={classes.paper}></Paper>
-            </Grid>
-        </Grid> */}
+      <GridList cellHeight={180} className={classes.gridList}>
+        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+          <ListSubheader component="div">December</ListSubheader>
+        </GridListTile>
+        {tileData.map((tile) => (
+          <GridListTile key={tile.img}>
+            <img src={tile.img} alt={tile.title} />
+          <GridListTileBar
+            title={tile.title}
+            classes={{root: classes.titleBar,title: classes.title,}} actionIcon={
+        <IconButton aria-label={`star ${tile.title}`}>
+          <StarBorderIcon className={classes.title} />
+        </IconButton>
+      }
+      />
+          </GridListTile>
+        ))}
+      </GridList>
     </div>
   );
 }
+
+

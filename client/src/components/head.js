@@ -4,13 +4,16 @@ import "../components/head.css"
 
 function Head({ checkIn, setCheckIn, checkOut, setCheckOut, adults, setAdults, city, setCity, refreshData }) {
 
-
+    // resetForm = () => {
+    //     this.setRefreshData(this.refreshData)
+    //   }
+ 
     return (
 
         <div className="w3-display-left w3-padding w3-col l6 m8">
 
             <div className="w3-container w3-blue">
-                <h2 style={{ 'fontSize': '20px'}}><i className="fa fa-bed w3-margin-right"></i>Hotel Name</h2>
+                <h2 style={{ 'fontSize': '20px'}}><i className="fa fa-bed w3-margin-right"></i>Hotelux</h2>
             </div>
             <div className="w3-container w3-white w3-padding-16">
                 <form onSubmit={refreshData}>
@@ -30,11 +33,12 @@ function Head({ checkIn, setCheckIn, checkOut, setCheckOut, adults, setAdults, c
                             <input className="w3-input w3-border" type="number" name="Adults" min="1" max="6" value={adults} onChange={e => setAdults(e.target.value)}></input>
                         </div>
                         <div className="w3-half">
-                            <label><i class="fa fa-child"></i> City Name</label>
+                            <label><i class="fas fa-city"></i> City Name</label>
                             <input className="w3-input w3-border" name="city" type="text" value={city} onChange={e => setCity(e.target.value)}></input>
                         </div>
                     </div>  
-                    <button class="w3-button w3-dark-grey" type="submit"><i class="fa fa-search w3-margin-right"></i> Search availability</button>                  
+                    <button class="w3-button w3-dark-grey" type="submit"><i class="fa fa-search w3-margin-right"></i> Search availability</button>  
+
                 </form>
             </div>
         </div>
