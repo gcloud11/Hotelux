@@ -10,12 +10,20 @@ import Api from "../utils/API";
 const Listings = ({ listingsData }) => {
     console.log('listings', listingsData);
     const [detail, setDetail] = useState(null);
-
-    let listings = [];
-    if(listingsData && listingsData.status === 200) {
-        listings = listingsData.data.data.body.searchResults.results;
+    const [hotel, setHotel] = useState({})   
+    console.log(listingsData, "listing")
+    const handleSave = hotel => {
+        const newHotels = {}
+        newHotels.name = hotel.name
+        newHotels.address = hotel.address.streetAddress
+        newHotels.city = hotel.address.locality
+        newHotels.state = hotel.address.region
+        newHotels.price = hotel.ratePlan.price.exactCurrent
+        newHotels.image = hotel.thumbnailUrl
+        Api.saveHotels(newHotels).then(results => {
+            console.log(results)
+        })
     }
-
     return (
         <div>
             <h2>Hi!</h2>
@@ -29,16 +37,17 @@ const Listings = ({ listingsData }) => {
                 </div>
             ) : (
                 <ul>
-                    {listings.map(listing => (
+                    { listingsData.data  ?  listingsData.data.data.body.searchResults.results.map(listing => (
                     <li>
                         <img src={listing.thumbnailUrl} alt={listing.name} />
                         <b>{listing.name}</b>
                         <button onClick={() => setDetail(listing)}>View Detail</button>
+                        <button onClick={() => handleSave(listing)}>Save Hotel</button>
                         {/*<Link to={ `/listings/${photo.id}` } className="btn btn-primary">Find out more!</Link>
                         <button onClick={moreInfo}> 
                         I am a button
                 </button> */}
-                    </li>))}
+                    </li>))  : <li></li> }
                 </ul>
             )}
         </div>

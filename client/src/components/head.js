@@ -17,11 +17,11 @@ function Head({ checkIn, setCheckIn, checkOut, setCheckOut, adults, setAdults, c
                     <div className="w3-row-padding" style={{ margin: "0 -16px"}}>
                         <div className="w3-half w3-margin-bottom">
                             <label><i className="fa fa-calendar-o"/>Check In </label>
-                            <input className="w3-input w3-border" type="text" placeholder="YYYY-DD-MM" name="CheckIn" required value={checkIn} onChange={e => setCheckIn(e.target.value)}></input>
+                            <input className="w3-input w3-border" type="text" placeholder="YYYY-MM-DD" name="CheckIn" required value={checkIn} onChange={e => setCheckIn(e.target.value)}></input>
                         </div>
                         <div className="w3-half">
                             <label><i className="fa fa-calendar-o"/>Check Out </label>
-                            <input className="w3-input w3-border" type="text" placeholder="YYYY-DD-MM" name="CheckOut" required value={checkOut} onChange={e => setCheckOut(e.target.value)}></input>
+                            <input className="w3-input w3-border" type="text" placeholder="YYYY-MM-DD" name="CheckOut" required value={checkOut} onChange={e => setCheckOut(e.target.value)}></input>
                         </div>
                     </div>
                     <div className="w3-row-padding" style={{margin:"8px -16px"}}>
