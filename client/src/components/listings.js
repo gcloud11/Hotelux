@@ -21,12 +21,20 @@ import Grid from '@material-ui/core/Grid';
 const Listings = ({ listingsData }) => {
     console.log('listings', listingsData);
     const [detail, setDetail] = useState(null);
-
-    let listings = [];
-    if(listingsData && listingsData.status === 200) {
-        listings = listingsData.data.data.body.searchResults.results;
+    const [hotel, setHotel] = useState({})   
+    console.log(listingsData, "listing")
+    const handleSave = hotel => {
+        const newHotels = {}
+        newHotels.name = hotel.name
+        newHotels.address = hotel.address.streetAddress
+        newHotels.city = hotel.address.locality
+        newHotels.state = hotel.address.region
+        newHotels.price = hotel.ratePlan.price.exactCurrent
+        newHotels.image = hotel.thumbnailUrl
+        Api.saveHotels(newHotels).then(results => {
+            console.log(results)
+        })
     }
-
 
     return (
         <div>
@@ -73,6 +81,7 @@ const Listings = ({ listingsData }) => {
                         </div>   
                     ))}
                 </Grid>
+
             )}
 
         </div>
