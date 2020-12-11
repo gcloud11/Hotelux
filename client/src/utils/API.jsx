@@ -51,7 +51,7 @@ const api = {
             method: 'GET',
             url: 'https://hotels4.p.rapidapi.com/properties/list',
             params: {
-              destinationId: '1506246',
+              destinationId: cityId,
               pageNumber: '1',
               checkIn: checkIn,
               checkOut: checkOut,
