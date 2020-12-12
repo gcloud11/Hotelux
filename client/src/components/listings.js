@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react"; 
 // import Maps from '../components/googleMaps';
 import LoginSignup from "../components/LogSign/loginSign";
-// import Api from "../utils/API";
+import Api from "../utils/API";
 import '../components/listings.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -36,6 +36,11 @@ const Listings = ({ listingsData }) => {
         })
     }
 
+    let listings = [];
+    if(listingsData && listingsData.status === 200) {
+        listings = listingsData.data.data.body.searchResults.results;
+    }
+
     return (
         <div>
             {/* <h2>Hi!</h2> */}
@@ -67,7 +72,7 @@ const Listings = ({ listingsData }) => {
                                  </CardContent>
                              </CardActionArea>
                              <CardActions>
-                                 <IconButton aria-label="add to favorites">
+                                 <IconButton aria-label="add to favorites" onClick={() => handleSave(listing)}>
                                     <FavoriteIcon />
                                  </IconButton>
                                  <Button size="small" color="primary" onClick={() => setDetail(listing)}>
