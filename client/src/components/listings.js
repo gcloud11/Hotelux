@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect } from "react"; 
 // import Maps from '../components/googleMaps';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import LoginSignup from "../components/LogSign/loginSign";
-// import Api from "../utils/API";
+import Api from "../utils/API";
 import '../components/listings.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -20,7 +21,27 @@ import Grid from '@material-ui/core/Grid';
   
 const Listings = ({ listingsData }) => {
     console.log('listings', listingsData);
+
+    const [checkIn, setCheckIn] = useState("");
+    const [checkOut, setCheckOut] = useState("");
+    const [adults, setAdults] = useState(1);
+    const [city, setCity] = useState("");
+    const [cityId, setCityId] = useState("");
+    const [destinationId, setDestinationId] = useState("");
+
+    Api.listings(destinationId, checkIn, checkOut, adults).then(results => {
+        // const destinationId = location.data.suggestions[0].entities[0].destinationId
+        console.log(results)
+    })
+
+    Api.cityId(city).then(results => {
+        console.log(results)
+        
+    })
+
     const [detail, setDetail] = useState(null);
+    //this was the only thing added since pull
+    const [listings, setListings] = useState([]) 
     const [hotel, setHotel] = useState({})   
     console.log(listingsData, "listing")
     const handleSave = hotel => {
@@ -38,10 +59,10 @@ const Listings = ({ listingsData }) => {
 
     return (
         <div>
-            {/* <h2>Hi!</h2> */}
-            {/* <div> 
+            <h2>Hi!</h2>
+            <div> 
                 <Link to="/insert/your/path/here" className="btn btn-primary">hello</Link> 
-            </div> */}
+            </div>
             { detail ? (
                 <div>
                     <h2>{detail.name}</h2>
@@ -51,7 +72,7 @@ const Listings = ({ listingsData }) => {
                 <Grid className="Grid1" item xs={12} sm={5} md={4} lg={3}> 
                     {listings.map((listing) => (
                         <div key={listing.id}>
-                        <Card key={listing.id} className="card1">
+                        <Card className="card1">
                              <CardActionArea>
                                  <CardMedia
                                     className="cardMedia"  
