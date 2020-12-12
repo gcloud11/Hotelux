@@ -44,9 +44,9 @@ const api = {
          return await axios.request(options);
             
     },
-    recentlyViewed: function() {
-        return axios.get("/api/favorite")
-    },
+    // recentlyViewed: function() {
+    //     return axios.get("/api/favorite")
+    // },
     saveHotels: function(hotel) {
         console.log(hotel, "hotel")
         return axios.post("/api/favorite", hotel)

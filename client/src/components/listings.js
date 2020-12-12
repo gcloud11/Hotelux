@@ -67,7 +67,7 @@ const Listings = ({ listingsData }) => {
                                         {listing.name}
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Text Here!
+                                        
                                     </Typography>
                                  </CardContent>
                              </CardActionArea>
