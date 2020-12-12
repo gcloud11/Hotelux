@@ -1,5 +1,6 @@
 
-import React, { useState, useEffect } from "react"; 
+import React, { useState, useEffect, useContext } from "react";
+import FavoritesContext from '../context/FavoritesContext';
 // import Maps from '../components/googleMaps';
 import LoginSignup from "../components/LogSign/loginSign";
 import Api from "../utils/API";
@@ -18,27 +19,28 @@ import Grid from '@material-ui/core/Grid';
 import Details from '../components/detail';
 
 
-  
+
 const Listings = ({ listingsData }) => {
+    const { favorites, saveFavorite } = useContext(FavoritesContext);
     console.log('listings', listingsData);
     const [detail, setDetail] = useState(null);
-    const [hotel, setHotel] = useState({})   
+    // const [hotel, setHotel] = useState({})   
     console.log(listingsData, "listing")
-    const handleSave = hotel => {
-        const newHotels = {}
-        newHotels.name = hotel.name
-        newHotels.address = hotel.address.streetAddress
-        newHotels.city = hotel.address.locality
-        newHotels.state = hotel.address.region
-        newHotels.price = hotel.ratePlan.price.exactCurrent
-        newHotels.image = hotel.thumbnailUrl
-        Api.saveHotels(newHotels).then(results => {
-            console.log(results)
-        })
-    }
+    // const handleSave = hotel => {
+    //     const newHotels = {}
+    //     newHotels.name = hotel.name
+    //     newHotels.address = hotel.address.streetAddress
+    //     newHotels.city = hotel.address.locality
+    //     newHotels.state = hotel.address.region
+    //     newHotels.price = hotel.ratePlan.price.exactCurrent
+    //     newHotels.image = hotel.thumbnailUrl
+    //     Api.saveHotels(newHotels).then(results => {
+    //         console.log(results)
+    //     })
+    // }
 
     let listings = [];
-    if(listingsData && listingsData.status === 200) {
+    if (listingsData && listingsData.status === 200) {
         listings = listingsData.data.data.body.searchResults.results;
     }
 
@@ -46,42 +48,52 @@ const Listings = ({ listingsData }) => {
         <div>
 
             { detail ? (
-                
-                <Details details={detail} setDetails={setDetail}/>
+
+                <Details details={ detail } setDetails={ setDetail } />
 
             ) : (
-                <Grid className="Grid1" item xs={12} sm={5} md={4} lg={3}> 
-                    {listings.map((listing) => (
-                        <div key={listing.id}>
-                        <Card key={listing.id} className="card1">
-                             <CardActionArea>
-                                 <CardMedia
-                                    className="cardMedia"  
-                                    image={listing.thumbnailUrl} style={{height: "200px"}}
-                                    title={listing.name}/>
-                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        {listing.name}
+                    <Grid className="Grid1" item xs={ 12 } sm={ 5 } md={ 4 } lg={ 3 }>
+                        {listings.map((listing) => (
+                            <div key={ listing.id }>
+                                <Card key={ listing.id } className="card1">
+                                    <CardActionArea>
+                                        <CardMedia
+                                            className="cardMedia"
+                                            image={ listing.thumbnailUrl } style={ { height: "200px" } }
+                                            title={ listing.name } />
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h5" component="h2">
+                                                { listing.name }
+                                            </Typography>
+                                            <Typography variant="body2" color="textSecondary" component="p">
+                                                Text Here!
                                     </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p">
-                                        Text Here!
-                                    </Typography>
-                                 </CardContent>
-                             </CardActionArea>
-                             <CardActions>
-                                 <IconButton aria-label="add to favorites" onClick={() => handleSave(listing)}>
+                                        </CardContent>
+                                    </CardActionArea>
+                                    <CardActions>
+                                        {
+                                            favorites.includes(listing.id)
+                                                ? <FavoriteIcon />
+                                                : <IconButton
+                                                    aria-label="add to favorites"
+                                                    onClick={ () => saveFavorite(listing) }
+                                                >
+                                                    <FavoriteIcon />
+                                                </IconButton>
+                                        }
+                                        {/* <IconButton aria-label="add to favorites" onClick={() => handleSave(listing)}>
                                     <FavoriteIcon />
-                                 </IconButton>
-                                 <Button size="small" color="primary" onClick={() => setDetail(listing)}>
-                                    More Details
+                                 </IconButton> */}
+                                        <Button size="small" color="primary" onClick={ () => setDetail(listing) }>
+                                            More Details
                                  </Button>
-                             </CardActions>
-                         </Card>
-                        </div>   
-                    ))}
-                </Grid>
+                                    </CardActions>
+                                </Card>
+                            </div>
+                        )) }
+                    </Grid>
 
-            )}
+                ) }
 
         </div>
     )
