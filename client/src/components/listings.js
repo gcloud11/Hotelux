@@ -15,6 +15,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import Grid from '@material-ui/core/Grid';
+import Details from '../components/detail';
 
 
   
@@ -43,15 +44,11 @@ const Listings = ({ listingsData }) => {
 
     return (
         <div>
-            {/* <h2>Hi!</h2> */}
-            {/* <div> 
-                <Link to="/insert/your/path/here" className="btn btn-primary">hello</Link> 
-            </div> */}
+
             { detail ? (
-                <div>
-                    <h2>{detail.name}</h2>
-                    <button onClick={() => setDetail(null)}>&lt; Back to listings</button>
-                </div>
+                
+                <Details details={detail} setDetails={setDetail}/>
+
             ) : (
                 <Grid className="Grid1" item xs={12} sm={5} md={4} lg={3}> 
                     {listings.map((listing) => (
@@ -80,9 +77,6 @@ const Listings = ({ listingsData }) => {
                                  </Button>
                              </CardActions>
                          </Card>
-                            {/* <img src={listing.thumbnailUrl} alt={listing.name} />
-                            <b>{listing.name}</b>
-                            <button onClick={() => setDetail(listing)}>View Detail</button> */}
                         </div>   
                     ))}
                 </Grid>

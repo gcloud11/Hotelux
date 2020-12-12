@@ -29,6 +29,12 @@ function Home() {
             console.log (inputs)
         
     };
+    
+    // async function DetailsPage () {
+    //     const detailsGet = await Api.getDetails(cityId, checkIn, checkOut, adults)
+    //     console.log(detailsGet)
+    // }
+
 
     return (
         <>
