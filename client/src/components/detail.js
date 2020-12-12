@@ -43,9 +43,14 @@ function Details({ details, setDetails }) {
                             <Typography gutterBottom variant="h5" component="h2">
                                 {details.name}
                             </Typography>
-                            {additionalDetails && <Typography text={details.roomsAndRates} variant="body2" color="textSecondary" component="p">
+                            {additionalDetails && <Typography variant="body2" color="textSecondary" component="p">
                                 Additional details:
                                 {/* {additionalDetails.amenities} */}
+                                {additionalDetails.amenities.map((amenity) => (
+                                    <div>
+                                       <h5>Amenities: {amenity.heading}</h5> 
+                                    </div>
+                                ) )}
                             </Typography>}
                             
                             </CardContent>
