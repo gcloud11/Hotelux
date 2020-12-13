@@ -1,4 +1,5 @@
-import React, { useState, useEffect }from "react";
+import React, { useState, useEffect, useContext } from "react";
+import FavoritesContext from '../context/FavoritesContext';
 import Api from "../utils/API";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -14,6 +15,9 @@ import Grid from '@material-ui/core/Grid';
 
 
 function Details({ details, setDetails }) {
+    const { favorites, saveFavorite } = useContext(FavoritesContext);
+
+    console.log('FAVORITES', favorites);
 
     const [additionalDetails, setAdditionalDetails] = useState();
     const { id } = details;
@@ -21,55 +25,62 @@ function Details({ details, setDetails }) {
     // if(listingsData && listingsData.status === 200) {
     //     getDetails = listingsData.data.body;
     // }
-    useEffect(async () => {
-        const detailsGet = await Api.getDetails(id);
-        console.log('DETAILS FROM DETAIL ENDPOINT', detailsGet);
-        if(detailsGet && detailsGet.data && detailsGet.data.data && detailsGet.data.data.body) {
-            setAdditionalDetails(detailsGet.data.data.body);
+
+    useEffect(() => {
+        const getDetails = async () => {
+            const detailsGet = await Api.getDetails(id);
+            console.log('DETAILS FROM DETAIL ENDPOINT', detailsGet);
+            if (detailsGet && detailsGet.data && detailsGet.data.data && detailsGet.data.data.body) {
+                setAdditionalDetails(detailsGet.data.data.body);
+            }
         }
-        
+        getDetails();
     }, [id]);
 
-    return(
-        <>
-            <Grid className="Grid1" item xs={12} sm={5} md={4} lg={3}> 
-                <Card key={details.id} className="card1">
-                        <CardActionArea>
-                            <CardMedia
-                            className="cardMedia"  
-                            image={details.thumbnailUrl} style={{height: "200px"}}
-                            title={details.name}/>
-                            <CardContent>
-                            <Typography gutterBottom variant="h5" component="h2">
-                                {details.name}
-                            </Typography>
-                            {additionalDetails && <Typography variant="body2" color="textSecondary" component="p">
-                                Additional details:
-                                {/* {additionalDetails.amenities} */}
-                                {additionalDetails.amenities.map((amenity) => (
-                                    <div>
-                                       <h5>Amenities: {amenity.heading}</h5> 
-                                    </div>
-                                ) )}
-                            </Typography>}
-                            
-                            </CardContent>
-                        </CardActionArea>
-                        <CardActions>
-                            <IconButton aria-label="add to favorites">
-                            <FavoriteIcon /> 
-                            Save as you favorite
-                            </IconButton>
-                        </CardActions>
-                </Card>
-                <button onClick={() => setDetails(null)}>&lt; Back to listings</button>
-            </Grid>
+    return (
+            
+                        <>
+                        <Grid className="Grid1" item xs={ 12 } sm={ 5 } md={ 4 } lg={ 3 }>
+                            <Card key={ details.id } className="card1">
+                                <CardActionArea>
+                                    <CardMedia
+                                        className="cardMedia"
+                                        image={ details.thumbnailUrl } style={ { height: "200px" } }
+                                        title={ details.name } />
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                            { details.name }
+                                        </Typography>
+                                        { additionalDetails && <Typography text={ details.roomsAndRates } variant="body2" color="textSecondary" component="p">
+                                            Additional details:
+                                {/* {additionalDetails.amenities} */ }
+                                        </Typography> }
 
-            <div>
+                                    </CardContent>
+                                </CardActionArea>
+                                <CardActions>
+                                    {
+                                        favorites.includes(id)
+                                            ? <FavoriteIcon />
+                                            : <IconButton 
+                                                    aria-label="add to favorites" 
+                                                    onClick={() => saveFavorite(details)}
+                                                >
+                                                    <FavoriteIcon />
+                                                    Save as your favorite
+                                                </IconButton>
+                                    }
+                                    
+                                </CardActions>
+                            </Card>
+                            <button onClick={ () => setDetails(null) }>&lt; Back to listings</button>
+                        </Grid>
 
-            </div>
+                        <div>
 
-        </>
+                        </div>
+
+                    </>
     )
 }
 
