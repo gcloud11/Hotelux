@@ -7,6 +7,7 @@ import Head from "../components/head";
 import Listings from '../components/listings';
 import GoogleApiWrapper from '../components/googleMaps';
 import Api from  "../utils/API";
+import fire from "../config/fire";
 
 function Home() {
 
@@ -36,6 +37,12 @@ function Home() {
         //refreshData();
     }, []);
 
+
+    // logout button
+    function logOut() {
+        fire.auth().signOut();
+    }
+
     return (
         <>
             <img className="w3-image"  src={Pic1} alt="Apartments" style={{ 'min-width' : '1000px' }} width="1600" height="1000"/>
@@ -43,8 +50,12 @@ function Home() {
             {/* <Card /> */}
             <Listings {...{checkIn,checkOut,adults,listingsData}} />
             {/* <GoogleApiWrapper /> */}
+            
+            {/* logout button */}
+            <button onClick = {logOut}>Log Out</button>
         </>
     )
+
 }
 
 export default Home;
