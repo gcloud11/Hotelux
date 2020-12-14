@@ -19,20 +19,10 @@ export default function SimpleMenu() {
 
   return (
     <div className="nav">
-      <Button className="btn" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+
         <img className="w3-image"  src={Image3} alt="Apartments" style={{ 'min-width' : '5px' }} width="20%" height="10px"/>
-      </Button>
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
-      </Menu>
+        <button className="w3-button w3-dark-grey nav-button"> LogOut </button>
+    
     </div>
   );
 }

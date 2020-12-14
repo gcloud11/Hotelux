@@ -37,7 +37,7 @@ function Head({ checkIn, setCheckIn, checkOut, setCheckOut, adults, setAdults, c
                             <input className="w3-input w3-border" name="city" type="text" value={city} onChange={e => setCity(e.target.value)}></input>
                         </div>
                     </div>  
-                    <button class="w3-button w3-dark-grey" type="submit"><i class="fa fa-search w3-margin-right"></i> Search availability</button>  
+                    <button className="w3-button w3-dark-grey" type="submit"><i class="fa fa-search w3-margin-right"></i> Search availability</button>  
 
                 </form>
             </div>
