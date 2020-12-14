@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import '../components/listings.css';
+import '../components/detail.css';
 import Grid from '@material-ui/core/Grid';
 
 
@@ -40,21 +40,29 @@ function Details({ details, setDetails }) {
     return (
             
                         <>
-                        <Grid className="Grid1" item xs={ 12 } sm={ 5 } md={ 4 } lg={ 3 }>
-                            <Card key={ details.id } className="card1">
+                        <Grid className="Grid2" item xs={ 12 } sm={ 6 } md={ 6 } lg={ 4 }>
+                            <Card key={ details.id } className="card2">
                                 <CardActionArea>
                                     <CardMedia
-                                        className="cardMedia"
+                                        className="cardMedia2"
                                         image={ details.thumbnailUrl } style={ { height: "200px" } }
                                         title={ details.name } />
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="h2">
                                             { details.name }
                                         </Typography>
-                                        { additionalDetails && <Typography text={ details.roomsAndRates } variant="body2" color="textSecondary" component="p">
-                                            Additional details:
-                                {/* {additionalDetails.amenities} */ }
-                                        </Typography> }
+                                                {additionalDetails && 
+                                        <Typography variant="body2" color="textSecondary" component="p">
+                                            <p className="addDetails">Additional details:</p>
+                                            {/* {additionalDetails.amenities} */}
+                                            {/* {additionalDetails.propertyDescription.address.fullAddress.map(() => ( */}
+                                            <div>
+                                                <h5>Address:{" " + additionalDetails.propertyDescription.address.fullAddress} </h5>
+                                                <p>Price starting from: {" " + additionalDetails.propertyDescription.featuredPrice.currentPrice.formatted}/night</p>
+                                                <p>Star Rating: {" " + additionalDetails.guestReviews.brands.formattedRating} / {additionalDetails.guestReviews.brands.formattedScale}</p>
+                                            </div>
+                                            {/* // ) )} */}
+                                        </Typography>}
 
                                     </CardContent>
                                 </CardActionArea>
@@ -73,7 +81,7 @@ function Details({ details, setDetails }) {
                                     
                                 </CardActions>
                             </Card>
-                            <button onClick={ () => setDetails(null) }>&lt; Back to listings</button>
+                            <button onClick={ () => setDetails(null) } className="w3-button w3-dark-grey go-back-to-list">&lt; Back to listings</button>
                         </Grid>
 
                         <div>

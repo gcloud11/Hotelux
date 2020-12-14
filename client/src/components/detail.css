@@ -1,0 +1,24 @@
+.Grid2 {
+    padding: 25px;
+    align-content: center;
+}
+
+.card2 {
+    flex-grow: 1;
+    max-Width: 345;
+    display: inline;
+    display: flex;
+    flex-wrap: wrap
+}
+
+.cardMedia2 {
+    height: 140;
+}
+
+.addDetails {
+    text-decoration: underline;
+}
+
+.go-back-to-list {
+    margin-top: 10px;
+}

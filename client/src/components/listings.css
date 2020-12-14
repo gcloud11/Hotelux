@@ -1,24 +1,27 @@
 .Grid1 {
     padding: 25px;
-    max-Width: 345;
-    /* display: center;
     display: flex;
-    flex-wrap: wrap; */
-    /* flex-flow: wrap-reverse; */
-    /* justify-content: space-evenly; */
-
-    /* align-items: flex-start; */
+    
+   
+    /* align-items: center; */
+    /* justify-content: center;  */
 }
 
 .card1 {
     flex-grow: 1;
     max-Width: 600;
     display: inline;
-    /* display: center; */
-    /* align-items: flex-start;
-    justify-content: space-evenly; */
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px;
+    margin: 100px;
+    justify-content: space-evenly; 
 }
 
 .cardMedia {
     height: 140;
+}
+
+.addDetails {
+    text-decoration: underline;
 }
