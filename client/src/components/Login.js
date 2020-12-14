@@ -18,7 +18,7 @@ function Login() {
         refreshTokenSetup(res);
         console.log("redirect to...")
 
-        window.location.replace("/Home")
+        window.location.replace("/")
     }
     const onFailure = (res) => {
         console.log('Login failed: res:', res);
