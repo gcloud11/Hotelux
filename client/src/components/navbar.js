@@ -33,7 +33,7 @@ export default function SimpleMenu() {
 
         <img className="w3-image"  src={Image3} alt="Apartments" style={{ 'min-width' : '5px' }} width="20%" height="10px"/>
         <button className="w3-button w3-dark-grey nav-button" onClick={handleLogout}> LogOut </button>
-        <FavoriteIcon className="favorite-btn"> <IconButton></IconButton> </FavoriteIcon>
+        <FavoriteIcon className="favorite-btn" > <IconButton onClick={handleFavorites}></IconButton> </FavoriteIcon>
     </div>
   );
 }
