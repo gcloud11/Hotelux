@@ -53,8 +53,10 @@ const Listings = ({ listingsData, additionalDetails }) => {
 
             ) : (
                     <Grid 
-                    className="Grid1" item xs={ 12 } sm={ 5 } md={ 4 } lg={ 3 }>
+                    className="Grid1" container spacing={3} >
                         {listings.map((listing) => (
+                             <Grid 
+                             className="Grid1" item xs={ 12 } sm={ 3 } md={ 3 } lg={ 3 }>
                             <div key={ listing.id }>
                                 <Card key={ listing.id } className="card1">
                                     <CardActionArea>
@@ -93,6 +95,7 @@ const Listings = ({ listingsData, additionalDetails }) => {
                                     </CardActions>
                                 </Card>
                             </div>
+                            </Grid>
                         )) }
                     </Grid>
 
