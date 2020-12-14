@@ -22,8 +22,12 @@
 
 }
 
-/* .favorite-btn {
-
-} */
+.favorite-btn {
+    position: absolute;
+    top:70px;
+    right:25px;
+    color: rgb(228, 109, 109);
+    
+}
 
 

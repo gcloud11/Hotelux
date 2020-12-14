@@ -39,7 +39,7 @@ return (
         onFailure={onFailure}
         cookiePolicy={'single_host_origin'}
         render={renderProps => (
-          <button style={{backgroundColor:"red"}} ><span  onClick={renderProps.onClick} >Signup</span></button>
+          <button style={{backgroundColor:"grey", width: "220px", height: "100px", opacity: "60%"}} ><span  onClick={renderProps.onClick} >Login Here!</span></button>
         )}
         isSignedIn={true}
       />
