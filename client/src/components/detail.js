@@ -50,11 +50,19 @@ function Details({ details, setDetails }) {
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="h2">
                                             { details.name }
-                                        </Typography>
-                                        { additionalDetails && <Typography text={ details.roomsAndRates } variant="body2" color="textSecondary" component="p">
-                                            Additional details:
-                                {/* {additionalDetails.amenities} */ }
-                                        </Typography> }
+                                            </Typography>
+                                                {additionalDetails && <Typography variant="body2" color="textSecondary" component="p">
+                                                Additional details:
+                                                {/* {additionalDetails.amenities} */}
+                                                {/* {additionalDetails.propertyDescription.address.fullAddress.map(() => ( */}
+                                                <div>
+                                                    <h5>Address:{" " + additionalDetails.propertyDescription.address.fullAddress} </h5>
+                                                    <p>Price starting from: {" " + additionalDetails.propertyDescription.featuredPrice.currentPrice.formatted}/night</p>
+                                                    {/* <p>Price:  {" " + additionalDetails.amenities.}</p> */}
+                                                </div>
+                                    {/* // ) )} */}
+                            </Typography>}
+                                        
 
                                     </CardContent>
                                 </CardActionArea>
