@@ -20,7 +20,7 @@ import Details from '../components/detail';
 
 
 
-const Listings = ({ listingsData }) => {
+const Listings = ({ listingsData, additionalDetails }) => {
     const { favorites, saveFavorite } = useContext(FavoritesContext);
     console.log('listings', listingsData);
     const [detail, setDetail] = useState(null);
@@ -52,7 +52,8 @@ const Listings = ({ listingsData }) => {
                 <Details details={ detail } setDetails={ setDetail } />
 
             ) : (
-                    <Grid className="Grid1" item xs={ 12 } sm={ 5 } md={ 4 } lg={ 3 }>
+                    <Grid 
+                    className="Grid1" item xs={ 12 } sm={ 5 } md={ 4 } lg={ 3 }>
                         {listings.map((listing) => (
                             <div key={ listing.id }>
                                 <Card key={ listing.id } className="card1">
@@ -65,8 +66,9 @@ const Listings = ({ listingsData }) => {
                                             <Typography gutterBottom variant="h5" component="h2">
                                                 { listing.name }
                                             </Typography>
+                                            <p> Near: {" " + listing.neighbourhood}</p>
                                             <Typography variant="body2" color="textSecondary" component="p">
-                                                Text Here!
+                                            
                                     </Typography>
                                         </CardContent>
                                     </CardActionArea>
@@ -84,9 +86,10 @@ const Listings = ({ listingsData }) => {
                                         {/* <IconButton aria-label="add to favorites" onClick={() => handleSave(listing)}>
                                     <FavoriteIcon />
                                  </IconButton> */}
-                                        <Button size="small" color="primary" onClick={ () => setDetail(listing) }>
+                                    <button className="w3-button w3-dark-grey" onClick={ () => setDetail(listing) }> More Details</button>
+                                        {/* <Button className="w3-button w3-dark-grey" onClick={ () => setDetail(listing) }>
                                             More Details
-                                 </Button>
+                                        </Button> */}
                                     </CardActions>
                                 </Card>
                             </div>
