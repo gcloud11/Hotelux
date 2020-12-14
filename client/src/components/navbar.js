@@ -5,6 +5,8 @@ import Image3 from "../images/Hotel3.png";
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import IconButton from '@material-ui/core/IconButton';
 
 
 export default function SimpleMenu() {
@@ -28,7 +30,7 @@ export default function SimpleMenu() {
 
         <img className="w3-image"  src={Image3} alt="Apartments" style={{ 'min-width' : '5px' }} width="20%" height="10px"/>
         <button className="w3-button w3-dark-grey nav-button"> LogOut </button>
-    
+        <FavoriteIcon className="favorite-btn"> <IconButton></IconButton> </FavoriteIcon>
     </div>
   );
 }
