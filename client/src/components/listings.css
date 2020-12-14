@@ -1,6 +1,7 @@
 .Grid1 {
     padding: 25px;
     display: flex;
+    padding-right: 100px;
     
    
     /* align-items: center; */
@@ -8,16 +9,16 @@
 }
 
 .card1 {
-    flex-grow: 1;
+    /* flex-grow: 1; */
     max-Width: 345;
-    display: inline;
+    /* display: inline;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
     padding: 25px;
-    margin: 25px;
-    justify-content: space-evenly; 
-    width: 350px;
-    height: 500px;
+    margin: 15px;
+    justify-content: space-evenly;
+    width: 310px;
+    height: 500px
 }
 
 .cardMedia {
@@ -29,5 +30,5 @@
 }
 
 .fav-icon {
-    margin-right: 100px;
+    margin-right: 30px;
 }

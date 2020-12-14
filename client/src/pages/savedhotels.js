@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Container } from "../components/container/container";
-import Navbar from "../components/Navbar/navbar";
-import Header from "../components/header/header";
+// import { Container } from "../components/container/container";
+import Navbar from "../components/navbar";
+// import Header from "../components/header/header";
 import API from '../utils/API';
-import SavedList from "../components/saved/saved-list";
+import SavedList from "../components/Saved/saved-list";
 
 class savedPage extends Component {
 
@@ -12,7 +12,7 @@ class savedPage extends Component {
     }
 
     componentDidMount = () => {
-        this.getHotel()
+        this.getHotels()
     }
 
     // deleteGoogleBook = currentBook => {
@@ -26,11 +26,11 @@ class savedPage extends Component {
     //     })
     // }
 
-    getBooks = () => {
-        API.getBooks()
+    getHotels = () => {
+        API.savedHotels()
         .then(res => {
             this.setState({
-                savedBooks: res.data
+                savedHotels: res.data
             })
             console.log("This is the res from getHotels", res);
         })
@@ -44,18 +44,17 @@ class savedPage extends Component {
         return (
             <div>
                 <Navbar />
-                <Container fluid>
-                <Header />
-                {this.state.savedBooks.length ? (
+                {/* <Container fluid> */}
+                {/* <Header /> */}
+                {this.state.savedHotels.length ? (
                     <SavedList 
-                    bookState={this.state.savedBooks}
-                    deleteGoogleBook={this.deleteGoogleBook}
+                    hotelState={this.state.savedHotels}
                     >
                     </SavedList>
                 ) : (
-                    <h5>No results to display. T-T </h5>
+                    <h5>No results to display. </h5>
                 )}
-                </Container>
+                {/* </Container> */}
             </div>
         )
     }
