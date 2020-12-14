@@ -2,6 +2,7 @@
     background-color: #111111;
     /* width: 100%; the parent must have 100% either */
     /* overflow: hidden; hides overflow */
+    position: relative;
 }
 
 
@@ -9,10 +10,15 @@
     /* flex-grow: 1; */
     /* text-align: end;
     align-items: flex-end; */
-    float: right;
-    height: 40px;
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 14px;
+    margin: 0;
+    /* float: right; */
+    /* height: 40px;
     align-self: right;
-    display:inline
+    display:inline */
 
 }
 

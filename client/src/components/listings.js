@@ -72,10 +72,10 @@ const Listings = ({ listingsData, additionalDetails }) => {
                                     </Typography>
                                         </CardContent>
                                     </CardActionArea>
-                                    <CardActions>
-                                        {
+                                    <CardActions className="cardActions">
+                                            {
                                             favorites.includes(listing.id)
-                                                ? <FavoriteIcon />
+                                                ? <FavoriteIcon className="fav-icon" />
                                                 : <IconButton
                                                     aria-label="add to favorites"
                                                     onClick={ () => saveFavorite(listing) }
@@ -84,9 +84,9 @@ const Listings = ({ listingsData, additionalDetails }) => {
                                                 </IconButton>
                                         }
                                         {/* <IconButton aria-label="add to favorites" onClick={() => handleSave(listing)}>
-                                    <FavoriteIcon />
-                                 </IconButton> */}
-                                    <button className="w3-button w3-dark-grey" onClick={ () => setDetail(listing) }> More Details</button>
+                                                <FavoriteIcon />
+                                            </IconButton> */}
+                                        <button className="w3-button w3-dark-grey fav-button" onClick={ () => setDetail(listing) }> More Details</button>
                                         {/* <Button className="w3-button w3-dark-grey" onClick={ () => setDetail(listing) }>
                                             More Details
                                         </Button> */}

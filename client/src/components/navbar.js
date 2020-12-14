@@ -2,9 +2,9 @@
 import React from 'react';
 import '../components/navbar.css';
 import Image3 from "../images/Hotel3.png";
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+// import Button from '@material-ui/core/Button';
+// import Menu from '@material-ui/core/Menu';
+// import MenuItem from '@material-ui/core/MenuItem';
 
 export default function SimpleMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);

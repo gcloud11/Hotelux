@@ -14,8 +14,10 @@
     display: flex;
     flex-wrap: wrap;
     padding: 25px;
-    margin: 100px;
+    margin: 25px;
     justify-content: space-evenly; 
+    width: 350px;
+    height: 500px;
 }
 
 .cardMedia {
@@ -24,4 +26,8 @@
 
 .addDetails {
     text-decoration: underline;
+}
+
+.fav-icon {
+    margin-right: 100px;
 }
