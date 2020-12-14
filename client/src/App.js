@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import './App.css';
 import Api from "./utils/API";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Home from "./pages/home";
 import listings from './components/listings';
 import FavoritesContext from './context/FavoritesContext';
+import Favorite from "./pages/savedhotels"
 import Login from "./components/Login"
 
 // import Log from "../src/components/login-sign";
@@ -38,11 +39,12 @@ function App() {
   return (
     <FavoritesContext.Provider value={ { favorites, saveFavorite } }>
       <Router>
-        {/* <Log /> */ }
         <Navbar />
         <Switch>
+        <Redirect from='/' to="/login" />
           <Route exact path="/login" component={ Login } />
           <Route exact path="/" component={ Home } />
+          <Route exact path="/favorites" component= { Favorite } />
           <Route path="/listings/:id" component={ listings } />
           {/* <Route exact path="/user" component={User} /> */ }
         </Switch>

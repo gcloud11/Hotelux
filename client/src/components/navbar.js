@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
+
 export default function SimpleMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -16,6 +17,11 @@ export default function SimpleMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+
+  const handleFavorites = () => {
+    window.location.replace("/favorites")
+  }
 
   return (
     <div className="nav">
@@ -30,7 +36,7 @@ export default function SimpleMenu() {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleFavorites}>My Favorites</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
     </div>
