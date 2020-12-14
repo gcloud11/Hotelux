@@ -52,55 +52,47 @@ const Listings = ({ listingsData, additionalDetails }) => {
                 <Details details={ detail } setDetails={ setDetail } />
 
             ) : (
-                    <Grid 
+                <Grid 
                     className="Grid1" container spacing={3} >
-                        {listings.map((listing) => (
-                             <Grid 
-                             className="Grid1" item xs={ 12 } sm={ 3 } md={ 3 } lg={ 3 }>
+                    {listings.map((listing) => (
+                            <Grid 
+                            className="Grid1" item xs={ 12 } sm={ 4 } md={ 4 } lg={ 3 }>
                             <div key={ listing.id }>
-                                <Card key={ listing.id } className="card1">
-                                    <CardActionArea>
+                                <Card key={ listing.id } className="card1" style={{position: 'relative'}}>
+                                    <CardActionArea >
                                         <CardMedia
                                             className="cardMedia"
                                             image={ listing.thumbnailUrl } style={ { height: "200px" } }
                                             title={ listing.name } />
-                                        <CardContent>
+                                        <CardContent >
                                             <Typography gutterBottom variant="h5" component="h2">
                                                 { listing.name }
                                             </Typography>
                                             <p> Near: {" " + listing.neighbourhood}</p>
-                                            <Typography variant="body2" color="textSecondary" component="p">
-                                            
-                                    </Typography>
+                                            <Typography variant="body2" color="textSecondary" component="p"></Typography>
                                         </CardContent>
                                     </CardActionArea>
-                                    <CardActions>
+                                    <CardActions className="cardActions" style={{position: 'absolute', bottom: "40px"}}>
                                         {
-                                            favorites.includes(listing.id)
-                                                ? <FavoriteIcon />
-                                                : <IconButton
-                                                    aria-label="add to favorites"
-                                                    onClick={ () => saveFavorite(listing) }
-                                                >
-                                                    <FavoriteIcon />
-                                                </IconButton>
+                                        favorites.includes(listing.id)
+                                            ? <FavoriteIcon  paddingRight={10}/>
+
+                                            : <IconButton
+                                                paddingRight={10}
+                                                aria-label="add to favorites"
+                                                onClick={ () => saveFavorite(listing) }>
+                                            <FavoriteIcon />
+                                            </IconButton>
                                         }
-                                        {/* <IconButton aria-label="add to favorites" onClick={() => handleSave(listing)}>
-                                    <FavoriteIcon />
-                                 </IconButton> */}
-                                    <button className="w3-button w3-dark-grey" onClick={ () => setDetail(listing) }> More Details</button>
-                                        {/* <Button className="w3-button w3-dark-grey" onClick={ () => setDetail(listing) }>
-                                            More Details
-                                        </Button> */}
+                                        <button className="w3-button w3-dark-grey fav-button" onClick={ () => setDetail(listing) }> More Details</button>
                                     </CardActions>
                                 </Card>
                             </div>
-                            </Grid>
-                        )) }
-                    </Grid>
+                        </Grid>
+                    )) }
+                </Grid>
 
-                ) }
-
+            ) }
         </div>
     )
 }
