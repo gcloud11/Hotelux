@@ -1,6 +1,7 @@
 .Grid1 {
     padding: 25px;
     display: flex;
+    padding-right: 100px;
     
    
     /* align-items: center; */
@@ -14,9 +15,9 @@
     display: flex;
     flex-wrap: wrap; */
     padding: 25px;
-    margin: 100px;
+    margin: 15px;
     justify-content: space-evenly;
-    width: 350px;
+    width: 310px;
     height: 500px
 }
 
@@ -26,4 +27,8 @@
 
 .addDetails {
     text-decoration: underline;
+}
+
+.fav-icon {
+    margin-right: 30px;
 }

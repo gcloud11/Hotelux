@@ -39,56 +39,50 @@ function Details({ details, setDetails }) {
 
     return (
             
-                        <>
-                        <Grid className="Grid2" item xs={ 12 } sm={ 6 } md={ 6 } lg={ 4 }>
-                            <Card key={ details.id } className="card2">
-                                <CardActionArea>
-                                    <CardMedia
-                                        className="cardMedia2"
-                                        image={ details.thumbnailUrl } style={ { height: "200px" } }
-                                        title={ details.name } />
-                                    <CardContent>
-                                        <Typography gutterBottom variant="h5" component="h2">
-                                            { details.name }
-                                        </Typography>
-                                                {additionalDetails && 
-                                        <Typography variant="body2" color="textSecondary" component="p">
-                                            <p className="addDetails">Additional details:</p>
-                                            {/* {additionalDetails.amenities} */}
-                                            {/* {additionalDetails.propertyDescription.address.fullAddress.map(() => ( */}
-                                            <div>
-                                                <h5>Address:{" " + additionalDetails.propertyDescription.address.fullAddress} </h5>
-                                                <p>Price starting from: {" " + additionalDetails.propertyDescription.featuredPrice.currentPrice.formatted}/night</p>
-                                                <p>Star Rating: {" " + additionalDetails.guestReviews.brands.formattedRating} / {additionalDetails.guestReviews.brands.formattedScale}</p>
-                                            </div>
-                                            {/* // ) )} */}
-                                        </Typography>}
+            <>
+            <Grid className="Grid2" item xs={ 12 } sm={ 6 } md={ 6 } lg={ 4 }>
+                <Card key={ details.id } className="card2">
+                    <CardActionArea>
+                        <CardMedia
+                            className="cardMedia2"
+                            image={ details.thumbnailUrl } style={ { height: "200px" } }
+                            title={ details.name } />
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                { details.name }
+                            </Typography>
+                                {additionalDetails && 
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                <p className="addDetails">Additional details:</p>
+                                <div>
+                                    <h5>Address:{" " + additionalDetails.propertyDescription.address.fullAddress} </h5>
+                                    <p>Price starting from: {" " + additionalDetails.propertyDescription.featuredPrice.currentPrice.formatted}/night</p>
+                                    <p>Star Rating: {" " + additionalDetails.guestReviews.brands.formattedRating} / {additionalDetails.guestReviews.brands.formattedScale}</p>
+                                </div>
+                            </Typography>}
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        {
+                        favorites.includes(id)
+                        ?   <FavoriteIcon paddingRight={10}/>
 
-                                    </CardContent>
-                                </CardActionArea>
-                                <CardActions>
-                                    {
-                                        favorites.includes(id)
-                                            ? <FavoriteIcon />
-                                            : <IconButton 
-                                                    aria-label="add to favorites" 
-                                                    onClick={() => saveFavorite(details)}
-                                                >
-                                                    <FavoriteIcon />
-                                                    Save as your favorite
-                                                </IconButton>
-                                    }
-                                    
-                                </CardActions>
-                            </Card>
-                            <button onClick={ () => setDetails(null) } className="w3-button w3-dark-grey go-back-to-list">&lt; Back to listings</button>
-                        </Grid>
-
-                        <div>
-
-                        </div>
-
-                    </>
+                        :   <IconButton 
+                                paddingRight={10}
+                                aria-label="add to favorites" 
+                                onClick={() => saveFavorite(details)}>
+                                <FavoriteIcon paddingLeft={10} />
+                                    Save as your favorite
+                            </IconButton>
+                        }
+                        
+                    </CardActions>
+                </Card>
+                <button onClick={ () => setDetails(null) } className="w3-button w3-dark-grey go-back-to-list">&lt; Back to listings</button>
+            </Grid>
+            <div>
+            </div>
+        </>
     )
 }
 

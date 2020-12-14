@@ -1,6 +1,10 @@
 .Grid2 {
     padding: 25px;
     align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin: auto;
 }
 
 .card2 {
@@ -8,7 +12,18 @@
     max-Width: 345;
     display: inline;
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+
+    padding: 25px;
+    /* margin: 0 auto; */
+    justify-content: space-evenly;
+    width: 400px;
+    height: 600px;
+
 }
 
 .cardMedia2 {
