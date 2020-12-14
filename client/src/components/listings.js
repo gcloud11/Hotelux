@@ -56,15 +56,15 @@ const Listings = ({ listingsData, additionalDetails }) => {
                     className="Grid1" container spacing={3} >
                     {listings.map((listing) => (
                             <Grid 
-                            className="Grid1" item xs={ 12 } sm={ 3 } md={ 3 } lg={ 3 }>
+                            className="Grid1" item xs={ 12 } sm={ 4 } md={ 4 } lg={ 3 }>
                             <div key={ listing.id }>
-                                <Card key={ listing.id } className="card1">
-                                    <CardActionArea>
+                                <Card key={ listing.id } className="card1" style={{position: 'relative'}}>
+                                    <CardActionArea >
                                         <CardMedia
                                             className="cardMedia"
                                             image={ listing.thumbnailUrl } style={ { height: "200px" } }
                                             title={ listing.name } />
-                                        <CardContent>
+                                        <CardContent >
                                             <Typography gutterBottom variant="h5" component="h2">
                                                 { listing.name }
                                             </Typography>
@@ -72,13 +72,13 @@ const Listings = ({ listingsData, additionalDetails }) => {
                                             <Typography variant="body2" color="textSecondary" component="p"></Typography>
                                         </CardContent>
                                     </CardActionArea>
-                                    <CardActions className="cardActions">
+                                    <CardActions className="cardActions" style={{position: 'absolute', bottom: "40px"}}>
                                         {
                                         favorites.includes(listing.id)
-                                            ? <FavoriteIcon />
+                                            ? <FavoriteIcon  paddingRight={10}/>
 
                                             : <IconButton
-                        
+                                                paddingRight={10}
                                                 aria-label="add to favorites"
                                                 onClick={ () => saveFavorite(listing) }>
                                             <FavoriteIcon />

@@ -39,7 +39,7 @@ function Details({ details, setDetails }) {
 
     return (
             
-        <>
+            <>
             <Grid className="Grid2" item xs={ 12 } sm={ 6 } md={ 6 } lg={ 4 }>
                 <Card key={ details.id } className="card2">
                     <CardActionArea>
@@ -65,12 +65,13 @@ function Details({ details, setDetails }) {
                     <CardActions>
                         {
                         favorites.includes(id)
-                        ?   <FavoriteIcon />
+                        ?   <FavoriteIcon paddingRight={10}/>
 
                         :   <IconButton 
+                                paddingRight={10}
                                 aria-label="add to favorites" 
                                 onClick={() => saveFavorite(details)}>
-                                <FavoriteIcon />
+                                <FavoriteIcon paddingLeft={10} />
                                     Save as your favorite
                             </IconButton>
                         }
