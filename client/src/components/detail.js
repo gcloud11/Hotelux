@@ -46,11 +46,13 @@ function Details({ details, setDetails }) {
                             {additionalDetails && <Typography variant="body2" color="textSecondary" component="p">
                                 Additional details:
                                 {/* {additionalDetails.amenities} */}
-                                {additionalDetails.amenities.map((amenity) => (
+                                {/* {additionalDetails.propertyDescription.address.fullAddress.map(() => ( */}
                                     <div>
-                                       <h5>Amenities: {amenity.heading}</h5> 
+                                       <h5>Address:{" " + additionalDetails.propertyDescription.address.fullAddress} </h5>
+                                        <p>Price starting from: {" " + additionalDetails.propertyDescription.featuredPrice.currentPrice.formatted}/night</p>
+                                        {/* <p>Price:  {" " + additionalDetails.amenities.}</p> */}
                                     </div>
-                                ) )}
+                                {/* // ) )} */}
                             </Typography>}
                             
                             </CardContent>
@@ -64,10 +66,6 @@ function Details({ details, setDetails }) {
                 </Card>
                 <button onClick={() => setDetails(null)}>&lt; Back to listings</button>
             </Grid>
-
-            <div>
-
-            </div>
 
         </>
     )

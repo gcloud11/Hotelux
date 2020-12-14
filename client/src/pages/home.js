@@ -38,7 +38,7 @@ function Home() {
 
     return (
         <>
-            <img className="w3-image"  src={Pic1} alt="Apartments" style={{ 'min-width' : '1000px' }} width="1600" height="1000"/>
+            <img className="w3-image"  src={Pic1} alt="Hotel" style={{ 'min-width' : '1000px' }} width="3000" height="1000"/>
             <Head {...{checkIn,setCheckIn,checkOut,setCheckOut,adults,setAdults,city,setCity,refreshData}} />
             <Listings {...{checkIn,checkOut,adults,listingsData}} />
             <Cards {...{checkIn,checkOut,adults,listingsData}}/>
