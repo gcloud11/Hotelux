@@ -7,6 +7,7 @@ import Footer from "./components/footer";
 import Home from "./pages/home";
 import listings from './components/listings';
 import FavoritesContext from './context/FavoritesContext';
+import Login from "./components/Login"
 
 // import Log from "../src/components/login-sign";
 
@@ -40,6 +41,7 @@ function App() {
         {/* <Log /> */ }
         <Navbar />
         <Switch>
+          <Route exact path="/login" component={ Login } />
           <Route exact path="/" component={ Home } />
           <Route path="/listings/:id" component={ listings } />
           {/* <Route exact path="/user" component={User} /> */ }

@@ -19,7 +19,7 @@ function LoginSignup () {
 
     return (
         <>
-          <h2>Glee Hotel</h2>
+          <h2>Hotelux</h2>
             <div className="container" id="container">
               <div className="form-container sign-up-container">
                 <form action="#">
