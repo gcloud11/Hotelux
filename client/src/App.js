@@ -9,6 +9,7 @@ import listings from './components/listings';
 import FavoritesContext from './context/FavoritesContext';
 import Favorite from "./pages/savedhotels"
 import Login from "./components/Login"
+import Logout from "./components/Logout"
 
 // import Log from "../src/components/login-sign";
 
@@ -41,7 +42,7 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-        
+          <Route exact path="/logout" component={ Logout } />
           <Route exact path="/login" component={ Login } />
           <Route exact path="/" component={ Home } />
           <Route exact path="/favorites" component= { Favorite } />
