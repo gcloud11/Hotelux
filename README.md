@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Hotelux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/67175494/102141660-d0576580-3e26-11eb-8af7-8f536e794fd0.png">
+</p>
 
-## Available Scripts
+**Hotelux** _is a software application for clients to use to view new hotels in specific cities and keep track of their favorite hotels._
 
-In the project directory, you can run:
+## User Story
 
-### `npm start`
+```
+AS A TRAVELER looking for a place to stay
+WE WANT TO find hotels available for a certain date range
+WE WANT TO see how much it costs per night
+WE WANT TO add previously used hotels to favorites db
+SO THAT we can decide on our next place to stay
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Technologies](#technologies)
+* [Visuals](#visuals)
+* [Credits & Contributors](#creditscontributors)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run this application, install locally using node package manager or npm.
 
-### `npm run build`
+```
+* Git clone repository
+* Setup in code editor
+* "Npm i" to intall all dependencies for application 
+* Run "npm start"
+```
+## Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This software application is for clients looking for a personalized way to view hotel listings and prices.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies
+```
+* React
+* Node
+* Express Web Server
+* React-Google-Login Package for Authentication
+* MongoDB/MongoDB Atlas to store favorites data
+* Hotels API
+* Material-UI for icons and styling
+* W3 Schools CSS Framework
+```
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Visuals
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Login Page
+<img width="1090" alt="login" src="https://user-images.githubusercontent.com/67175494/102140925-9f2a6580-3e25-11eb-8bfc-c7ba9881ce0a.png">
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Home Page
+<img width="1204" alt="homepage" src="https://user-images.githubusercontent.com/67175494/102140790-6ab6a980-3e25-11eb-8e8b-c835f2ad77fa.png
+">
 
-## Learn More
+Viewing Listings
+<img width="1128" alt="hotel-listings" src="https://user-images.githubusercontent.com/67175494/102141060-dac52f80-3e25-11eb-9f02-381241558d26.png">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Sign-up and login pages powered by Google token authentication to protect user data.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+[Hotelux](https://hotelux.herokuapp.com/login)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[Presentation](https://docs.google.com/presentation/d/1Jbxnu-Q6n7PeEeSAAhVxPru3Uf0zk55anvyb5ibyVSQ/edit#slide=id.p)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Credits & Contributors
+<a href="https://github.com/gcloud11/Hotelux/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=gcloud11/Hotelux" />
+</a>
