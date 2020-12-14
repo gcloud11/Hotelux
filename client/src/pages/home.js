@@ -4,11 +4,11 @@ import './home.css';
 import Pic1 from "../images/Hotel1.jpg";
 import Head from "../components/head";
 import Listings from '../components/listings';
-import Api from  "../utils/API";
+import Api from "../utils/API";
 import Cards from "../components/card";
 
 function Home() {
- 
+
     const [checkIn, setCheckIn] = useState("");
     const [checkOut, setCheckOut] = useState("");
     const [adults, setAdults] = useState(1);
@@ -25,11 +25,15 @@ function Home() {
         console.log('DESTINATION:', destinationId);
         const data = await Api.listings(destinationId, checkIn, checkOut, adults);
         setListingsData(data);
-        const inputs = {id: new Date().getTime().toString(), checkIn, checkOut, adults, city}
-            console.log (inputs)
-        
+        const inputs = { id: new Date().getTime().toString(), checkIn, checkOut, adults, city }
+        console.log(inputs)
+        setCity("");
+        setAdults(1);
+        setCheckIn("");
+        setCheckOut("");
+
     };
-    
+
     // async function DetailsPage () {
     //     const detailsGet = await Api.getDetails(cityId, checkIn, checkOut, adults)
     //     console.log(detailsGet)
@@ -38,10 +42,10 @@ function Home() {
 
     return (
         <>
-            <img className="w3-image"  src={Pic1} alt="Hotel" style={{ 'min-width' : '1000px' }} width="3000" height="1000"/>
-            <Head {...{checkIn,setCheckIn,checkOut,setCheckOut,adults,setAdults,city,setCity,refreshData}} />
-            <Listings {...{checkIn,checkOut,adults,listingsData}} />
-            <Cards {...{checkIn,checkOut,adults,listingsData}}/>
+            <img className="w3-image" src={Pic1} alt="Hotel" style={{ 'min-width': '1000px' }} width="3000" height="1000" />
+            <Head {...{ checkIn, setCheckIn, checkOut, setCheckOut, adults, setAdults, city, setCity, refreshData }} />
+            <Listings {...{ checkIn, checkOut, adults, listingsData }} />
+            <Cards {...{ checkIn, checkOut, adults, listingsData }} />
         </>
     )
 
@@ -49,12 +53,12 @@ function Home() {
 
     // EXAMPLE OF CLIENT (react) TALKING TO SERVER (node/express)
     // useEffect(() => {
-        // axios.get('/api/user/example').then((response) => {
-        //     console.log("RESPONSE FROM SERVER", response.data);
-        // });
+    // axios.get('/api/user/example').then((response) => {
+    //     console.log("RESPONSE FROM SERVER", response.data);
+    // });
 
-        // If you have a default:
-        //refreshData();
+    // If you have a default:
+    //refreshData();
     // }, []);
 
 }
